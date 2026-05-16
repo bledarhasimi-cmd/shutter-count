@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="sq">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RAW Shutter Count</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">RAW only</p>
+          <h1>Shutter Count</h1>
+          <p class="intro">
+            Kontrollo shutter count nga RAW files. Leximi behet ne browser dhe file-i nuk ngarkohet ne server.
+          </p>
+        </div>
+
+        <label class="drop-zone" id="dropZone">
+          <input
+            id="fileInput"
+            type="file"
+            multiple
+            accept=".3fr,.ari,.arw,.bay,.cr2,.cr3,.crw,.dcr,.dng,.erf,.fff,.gpr,.iiq,.k25,.kdc,.mef,.mos,.mrw,.nef,.nrw,.orf,.pef,.raf,.raw,.rw2,.rwl,.sr2,.srf,.srw,.x3f"
+          />
+          <span id="dropTitle">Zgjidh ose terhiq RAW files ketu</span>
+          <small>Canon, Nikon, Sony, Fujifilm, Panasonic, Olympus, Leica, Pentax dhe te tjera kur metadata eshte e lexueshme.</small>
+        </label>
+      </section>
+
+      <section class="summary" aria-live="polite">
+        <div>
+          <span>Files</span>
+          <strong id="fileCount">0</strong>
+        </div>
+        <div>
+          <span>Te lexuara</span>
+          <strong id="readCount">0</strong>
+        </div>
+        <div>
+          <span>Me shutter</span>
+          <strong id="foundCount">0</strong>
+        </div>
+      </section>
+
+      <section class="results">
+        <div class="results-head">
+          <h2>Rezultatet</h2>
+          <button id="clearButton" type="button" disabled>Pastro</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>File</th>
+                <th>Kamera</th>
+                <th>Total</th>
+                <th>Mechanical</th>
+                <th>Electronic</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="resultsBody">
+              <tr>
+                <td colspan="6" class="empty">Asnje file i zgjedhur.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/exifreader@4.25.0/dist/exif-reader.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
